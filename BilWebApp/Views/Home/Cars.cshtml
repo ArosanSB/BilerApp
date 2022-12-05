@@ -1,0 +1,72 @@
+﻿@using DTO.Model
+@{
+    ViewBag.Title = "Cars";
+}
+
+
+
+<h1>Biler</h1>
+
+
+<table class="table">
+    <tr class="thead">
+        <th class="table-bordered th">Mærke</th>
+        <th class="table-bordered th">Model</th>
+        <th class="table-bordered th">Registation nr</th>
+        <th class="table-bordered th">Årgang</th>
+        <th class="table-bordered th">Km</th>
+        <th class="table-bordered th">Opdatere</th>
+        <th class="table-bordered th">Slet</th>
+    </tr>
+    @foreach (BilDTO b in Model)
+    {
+
+        <tr class="table th">
+            <td class="table-bordered td">@b.Mærke</td>
+            <td class="table-bordered td">@b.Model</td>
+            <td class="table-bordered td">@b.RegNr</td>
+            <td class="table-bordered td">@b.Aargang</td>
+            <td class="table-bordered td">@b.kM.ToString().AsInt()</td>
+            <td class="table-bordered td">@Html.ActionLink("Opdatere", "UpdateCar", new { id = b.RegNr }, new { @class = "btn btn-primary" })</td>
+            <td class="table-bordered td">@Html.ActionLink("Slet", "DeleteCar", new { id = b.RegNr }, new { @class = "btn btn-danger" })</td>
+
+        </tr>
+            }
+</table>
+
+
+
+
+
+
+<!--
+    
+    * Første layout indtil jeg fandt ud af med bootstrap
+
+<section class="dl-blurbs">
+    <dl>
+        @foreach (BilDTO b in Model)
+        {
+            <dt>
+               @b.Mærke
+            </dt>
+            <dd>
+
+                <strong>Registation nr:</strong>  @b.RegNr
+                <br />
+                <strong>Model:</strong>  @b.Model
+                <br />
+                <strong>Årgang: </strong>  @b.Aargang
+                <br />
+
+                <strong> KM:</strong> @b.kM.ToString().AsInt()
+
+                @Html.ActionLink("Opdatere", "UpdateCar", new { id = b.RegNr }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Slet", "DeleteCar", new { id = b.RegNr }, new { @class = "btn btn-danger" })
+
+            </dd>
+
+        }
+    </dl>
+</section>
+-->

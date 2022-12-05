@@ -1,0 +1,61 @@
+﻿@model DTO.Model.BilDTO
+
+@{
+    ViewBag.Title = ViewBag.Title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm((string)ViewBag.ActionMetod, "home", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(model => model.RegNr, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.RegNr, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RegNr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mærke, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Mærke, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Mærke, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Model, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Model, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Aargang, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Aargang, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Aargang, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(model => model.kM, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.kM, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.kM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <input type="submit" value="Save" name="save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
