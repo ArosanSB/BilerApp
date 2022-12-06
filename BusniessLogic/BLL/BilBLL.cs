@@ -21,6 +21,7 @@ namespace BusniessLogic.BLL
 
         public void AddCar(BilDTO bil)
         {
+
             BilRepository.AddBil(bil);
 
         }
@@ -56,7 +57,17 @@ namespace BusniessLogic.BLL
             }
             return false;
         }
-        
+
+        public List<BilDTO> searchRegNr(string regNr)
+        {
+            return BilRepository.SearchHandler(b => b.RegNr.Contains(regNr));
+        }
+
+        public List<BilDTO> searchModel(string model)
+        {
+            return BilRepository.SearchHandler(b => b.Model.Contains(model));
+        }
+
 
     }
 }

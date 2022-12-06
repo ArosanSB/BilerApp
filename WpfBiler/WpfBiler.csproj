@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\FormWindow.xaml.cs">
+      <DependentUpon>FormWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +70,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\FormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +100,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BilDataAccess\BilDataAccess.csproj">
+      <Project>{63c889f9-bd65-4934-b179-056eb1e86015}</Project>
+      <Name>BilDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusniessLogic\BusniessLogic.csproj">
+      <Project>{5e56e699-9d7b-4bb4-a318-5f109cbb8ae5}</Project>
+      <Name>BusniessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{ea77d4dc-3428-44a4-99ff-bbeacc6d5c0a}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="refresh1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="refresh-icon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

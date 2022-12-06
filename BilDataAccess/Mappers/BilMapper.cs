@@ -17,7 +17,7 @@ namespace BilDataAccess.Mappers
 
         public static Bil Map(BilDTO bil)
         {
-            return new Bil(bil.RegNr, bil.Mærke, bil.Model, bil.Aargang);
+            return new Bil(bil.RegNr, bil.Mærke, bil.Model, bil.Aargang, bil.kM);
         }
     }
 }

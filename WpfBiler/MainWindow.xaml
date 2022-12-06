@@ -5,16 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBiler"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="554">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="157*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_CreateCar" Content="Opret bil" Margin="353,172,353,227"/>
-        <Button x:Name="btn_LookCars" Content="Se Biler" Margin="87,172,619,227"/>
-        <Button x:Name="btn_UpdateCar" Content="Opdatere bil" Margin="595,172,111,227"/>
-        <Button x:Name="btn_DeleteCar" Content="Slet Bil" Margin="353,298,353,101"/>
+
+        <Label x:Name="lbl_Bil" Content="Biler" Margin="10,10,385,344" FontSize="36"/>
+        <ListView x:Name="listView_Biler" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,90,16,90" Grid.ColumnSpan="2">
+            <ListView.View>
+
+                <GridView>
+
+                    <GridViewColumn Header="Reg nr." Width="100" DisplayMemberBinding="{Binding RegNr}"/>
+                    <GridViewColumn Header="Mærke" Width="100" DisplayMemberBinding="{Binding Mærke}" />
+                    <GridViewColumn Header="Model" Width="100" DisplayMemberBinding="{Binding Model}" />
+                    <GridViewColumn Header="Aargang" Width="100" DisplayMemberBinding="{Binding Aargang}" />
+                    <GridViewColumn Header="Km" Width="100" DisplayMemberBinding="{Binding kM}" />
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btn_Create" Content="Opret" Margin="10,375,424,10" Click="CreateHandler"/>
+        <Button x:Name="btn_Update" Content="Opdatere" Margin="222,375,212,10" Click="UpdateHandler"/>
+        <Button x:Name="btn_Delete" Content="Slet" Margin="434,375,10,10" Grid.ColumnSpan="2" Click="DeleteHandler"/>
+        <Button x:Name="btn_UpdateList" Content=""  HorizontalAlignment="Left" Margin="470,29,0,0" VerticalAlignment="Top" Height="43" Width="38" Click="btn_UpdateList_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="refresh1.jpg" Stretch="Fill" />
+            </Button.Background>
+        </Button>
+
+
+
 
     </Grid>
 </Window>

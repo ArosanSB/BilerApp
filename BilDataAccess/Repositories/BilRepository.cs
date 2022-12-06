@@ -8,6 +8,7 @@ using BilDataAccess.Context;
 using BilDataAccess.Mappers;
 using BilDataAccess.Model;
 using System.Data.Entity.Core.Objects;
+using System.Linq.Expressions;
 
 namespace BilDataAccess.Repositories
 {
@@ -25,6 +26,7 @@ namespace BilDataAccess.Repositories
         {
             using (BilContext context = new BilContext())
             {
+
                 context.Biler.Add(BilMapper.Map(bil));
                 context.SaveChanges();            
             }
@@ -62,5 +64,18 @@ namespace BilDataAccess.Repositories
                 return true;
             }
         }
+
+        public static List<BilDTO> SearchHandler(Expression<Func<Bil, bool>> predicate)
+        {
+            using (BilContext context = new BilContext())
+            {
+
+                //return BilMapper.Map(context.Biler.Where(predicate).ToList());
+
+                return context.Biler.Where(predicate).ToList().ConvertAll<BilDTO>((Bil bil) => BilMapper.Map(bil));
+
+            }
+        }
+
     } 
 }
