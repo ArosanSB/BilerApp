@@ -13,7 +13,12 @@
         </Grid.ColumnDefinitions>
 
         <Label x:Name="lbl_Bil" Content="Biler" Margin="10,10,385,344" FontSize="36"/>
-        <ListView x:Name="listView_Biler" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,90,16,90" Grid.ColumnSpan="2">
+        <ListView x:Name="listView_Biler" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,90,16,90" Grid.ColumnSpan="2" ItemsSource="{Binding Effects}" MouseDoubleClick="UpdateHandler">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
 
                 <GridView>

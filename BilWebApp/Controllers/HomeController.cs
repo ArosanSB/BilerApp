@@ -97,14 +97,14 @@ namespace BilWebApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Her ser man klasse-diagrammet af programmet :)";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Arosan Suresh Balasingam";
 
             return View();
         }
